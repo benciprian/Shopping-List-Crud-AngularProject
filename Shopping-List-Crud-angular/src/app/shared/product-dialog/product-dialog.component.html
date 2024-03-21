@@ -1,0 +1,33 @@
+<h1 *ngIf="!isChange" mat-dialog-title>Create Product</h1>
+<h1 *ngIf="isChange"  mat-dialog-title>Edit Product</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Id</mat-label>
+    <input matInput [(ngModel)]="data.id">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Quantity</mat-label>
+    <input matInput [(ngModel)]="data.quantity">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>BoughtAtPrice</mat-label>
+    <input matInput [(ngModel)]="data.boughtAtPrice">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Bought</mat-label>
+    <input matInput [(ngModel)]="data.bought">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>TotalPrice</mat-label>
+    <input matInput [(ngModel)]="data.totalPrice">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button *ngIf="!isChange" [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+  <button mat-button *ngIf="isChange" [mat-dialog-close]="data" cdkFocusInitial>Edit</button>
+</div>
